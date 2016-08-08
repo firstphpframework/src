@@ -44,7 +44,8 @@ class Dispatch{
             $controller_name = $controller.'_controller';
             if(method_exists($controller_name,$action))
             {
-                call_user_func(array($controller_name,$action));
+            	$controller_obj = new $controller_name();
+                call_user_func(array($controller_obj,$action));
             }
             else
             {
